@@ -359,4 +359,33 @@ ES 6 features:
 
 https://caniuse.com/
 
+webpack-dev-server
+
+devServer: {
+    port: 9000,
+},
+
+====
+
+@babel/core ==> provides babel 
+
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ code into backwards-compatible JavaScript code that can be run by older JavaScript engines. 
+
+ "babel-loader" ==> loads .js files imported 
+
+ import Product from './Product'
+
+ Product.js
+
+ like "css-loader"
+
+"@babel/es2015"
+ @babel/preset-env ==> polyfills
+ A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.
+
+ Promise API ==> ES 6 ==> Polyfill ==> make it work in ES5
+ @babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s).
+
+
+Any version of JS ==> bundle.js will be of ES6 {sent to different browsers}
 

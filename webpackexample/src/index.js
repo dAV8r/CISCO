@@ -1,4 +1,8 @@
 import './styles.css'; // trying to import css like Js --> CSS-loader resolves
+import Product from './Product';
+
+let p = new Product("iPhone 14", 120000.00);
+console.log(p.getName(), p.getPrice());
 
 let {forEach, filter, map} = require('./lib');
 
@@ -8,6 +12,7 @@ console.log("Hello!!!")
 // forEach(data, console.log);
 
 //predicate (e) => e % 2 === 0
+//var evens = filter(data, function (e) {return e % 2 === 0;});
 let evens = filter(data, e => e % 2 === 0);
 var products = [
     {"name": "iPhone 13", "price": 98000.00, "category" : "mobile"},

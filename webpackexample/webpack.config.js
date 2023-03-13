@@ -3,7 +3,7 @@ const path = require('path'); // pre defined module --> builtin module of nodejs
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -14,6 +14,11 @@ module.exports = {
         {
             test:/\.css$/,
             use: ["style-loader", "css-loader"]
+        },
+        {
+            test:/\.js(x)?$/,
+            use: 'babel-loader',
+            exclude: /node_modules/
         }
     ]
   },
@@ -24,4 +29,4 @@ module.exports = {
   ]
 }
 
-// module.exports.config;
+module.exports = config;
