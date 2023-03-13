@@ -1,8 +1,10 @@
-console.log("Hello!!!")
+import './styles.css'; // trying to import css like Js --> CSS-loader resolves
+
 let {forEach, filter, map} = require('./lib');
 
 var data = [5,4, 3,11,2,12];
 
+console.log("Hello!!!")
 // forEach(data, console.log);
 
 //predicate (e) => e % 2 === 0

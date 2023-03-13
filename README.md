@@ -328,3 +328,35 @@ Development mode --> each change to files creates new bundles
 
 // webpack development server
  "start": "webpack serve --mode production",
+
+ css-loader and style-loader
+
+ css-loader resolves css imports in JS
+ style-loader places css contents into index.html using
+ <style></style>
+
+
+==============
+Tracuer/Babel ==> Transpiler / pre-processor
+
+Latest version of JS ==> lower version of JS which is compatable across browsers
+ES 6  ==> ES 5
+
+ES 6 features:
+1) let and const
+2) arrow functions
+3) class 
+4) ES 6 module system
+    --> import and export instead of module.exports and require
+    export class Product {
+
+    }
+
+    other.js
+    import {Product} from './Product'
+
+5) Promise API
+
+https://caniuse.com/
+
+
