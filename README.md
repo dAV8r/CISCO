@@ -582,4 +582,55 @@ ReactDOM.render(<ProductComponent />, document.getElementById("root"));
 
 
 
+create-react-app:
+--> creates scaffolding code with all configs ready 
 
+npx create-react-app customerapp
+--> configures "babel", "html-webpack-plugin", "css-loader", "style-loader", "web-pack-dev-server"
+--> install react, react-dom, "jest"
+
+Without create-react-app:
+1) npm init --y
+2) npm i webpack webpack-cli html-webpack-plugin, @babel/core @babel-loader @babel/present-env
+webpack-dev-server -D
+3) npm i react react-dom
+4) write webpack.config.js
+5) babel.config.js
+6) creact default index.html
+....
+
+react-scripts is a wrapper for webpack
+
+
+
+"customers": [{
+            "id": 1,
+            "firstName": "Rachel",
+            "lastName": "Green "
+        },
+        {
+            "id": 2,
+            "firstName": "Chandler",
+            "lastName": "Bing"
+        },
+        {
+            "id": 3,
+            "firstName": "Joey",
+            "lastName": "Tribbiani"
+        },
+        {
+            "id": 4,
+            "firstName": "Monica",
+            "lastName": "Geller"
+        },
+        {
+            "id": 5,
+            "firstName": "Ross",
+            "lastName": "Geller"
+        },
+        {
+            "id": 6,
+            "firstName": "Phoebe",
+            "lastName": "Buffay"
+        }
+        ]
