@@ -405,6 +405,101 @@ import filter from './lib';  into memory only filter is loaded not entire 'lib.j
 
 import {map} from './lib'; loads entire lib.js into memory and from that destructure map
 
-========
+=======================
 
+ReactJS
+--> JavaScript library for building Web client side applications ==> UI
 
+Server Side Rendering
+Client Side Rendering
+
+For CSR 
+1) DOM ==> object representation of your view ==> create element, navigate, delete elements
+document.querySelector(".tmpl-headerNavItem_home").innerHTML = "Banuprakash"
+2) jQuery library simplfied way to perform DOM operations
+$(".tmpl-headerNavItem_home").html("Banu")
+
+Web 2.0
+* SPA ==> Single Page Application
+one index.html but many views based on URL
+http://amazon.com
+should display home contents
+http://amazon.com/mobiles
+should display mobiles
+http://amazon.com/tv
+should display tv
+http://amazon.com/mobiles/iPhone
+should display only iPhone mobils
+
+* Application size started to increase
+
+3) Templates
+3.1) Handlebar
+3.2) Mustache 
+todos.html
+{{#todo}}
+<h2>{{title}}</h2>
+<small>Created on {{createdOn}}</small>
+<p>{{text}}</p>
+{{/todo}}
+
+{{}} -=> interpolation 
+
+then embed todos.html inside index.html
+
+3.3) Knockout
+3.4) Underscore templates
+
+MVC Architectural pattern:
+M --> Model
+V --> View
+C --> Controller
+
+Framework and Libraries:
+4) Backbone was a UI library --> provided Model and Controller; for views used any 
+templates [ handlebars / Mustache]
+
+5) ReactJS --> View Library
+ReactJS is by Facebook
+xhp ==> XML and PHP
+Facebook search component ==> reactJS was used
+JSconf 
+
+Open Source --> Khan Acedamy {Sophie} --> Netflix
+
+React.js: The Documentary
+https://www.youtube.com/watch?v=8pDqJVdNa44
+
+6) AngularJS --> Complete Framework --> total solution
+7) Google --> Angular
+
+====
+
+ReactJS
+
+codepen.io
+HTML
+<div id="root"></div>
+
+Settings:
+Behaviour => turn off save and preview
+JS ==>
+Preprocessor: Babel { Babel includes JSX processing. }
+CDNS
+Search react:
+https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js
+search react-dom:
+https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js
+
+createElement() is the root api of react
+
+let Welcome = React.createElement("h1", {style:{'color':'red'}}, 
+    "Welcome to React!!!");
+
+https://github.com/chentsulin/awesome-react-renderer
+
+let Welcome = React.createElement("h1", {style:{'color':'red'}}, "Welcome to React!!!");
+
+console.log(Welcome)
+// reconcillation -> VDOM to DOM
+ReactDOM.render(Welcome, document.getElementById("root"));
