@@ -215,3 +215,93 @@ Check:
 4) package.json
 
 nodeexample> npm start
+
+
+function test() {
+    var x = 10;
+    let y = 15; // no diff between var and let
+    if(y > x) {
+        let t = 100; // block scope
+        var r = 889; // this will be hoisted to function scope
+    }
+    console.log(r); // visible
+    console.log(t); // not visible
+}
+
+===
+
+JS Unit Testing Framework
+1) Jasmine ==> Angular uses
+2) Mocha
+3) Jest ==> react uses
+
+
+Assertion Library ==> chai.js
+Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+
+
+AAA ==> Assemble Action Assert
+
+npm i mocha -D
+
+====
+
+Webpack
+React one small app
+React bigger application with All advance featrues with 8  - 10 components
+with react-router-dom / Hooks/ API call to server/ Context 
+
+e => e * 2;
+
+e => e.name;
+
+e => <div class="card">
+    <h1> {e.name} </h1>
+    <h2> {e.price} </h2>
+</div>
+
+We have built-in methods for forEach, filter and map in "arrays" type of data
+
+==============================
+
+JS build tools: Grunt, Gulp and Webpack
+
+Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as minification, compilation, unit testing, and linting. 
+
+tsc customer.ts ==> customer.js
+tsc product.ts ==> product.js
+
+Why Webpack?
+1) automate compilation
+2) create bundles
+    bundle.js includes all the js code 
+3) before bundle we need to 
+    a) minifiy ==> remove all empty white spaces
+    b) uglify ==> shorten variable and function names
+4) automate inclusion of the compiled bundle into index.html
+    <script src="bundle.js"> </script>
+5) automate including CSS 
+6) etc..,
+
+Default javascript build tool which comes with react, angular, vue scaffolding code is webpack
+
+webpackexample> npm init --y
+webpackexample> npm i webpack webpack-cli webpack-dev-server html-webpack-plugin css-loader style-loader @babel/core babel-loader @babel/preset-env -D
+npm start
+npm test
+
+1) npm run dev
+> webpackexample@1.0.0 dev
+> webpack --mode development
+
+asset bundle.js 3.82 KiB [emitted] (name: main)
+./src/index.js 715 bytes [built] [code generated]
+./src/lib.js 645 bytes [built] [code generated]
+webpack 5.76.1 compiled successfully in 46 ms
+
+npm run prod
+
+asset bundle.js 770 bytes [emitted] [minimized] (name: main)
+./src/index.js 715 bytes [built] [code generated]
+./src/lib.js 645 bytes [built] [code generated]
+webpack 5.76.1 compiled successfully in 130 ms
