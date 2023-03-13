@@ -503,3 +503,83 @@ let Welcome = React.createElement("h1", {style:{'color':'red'}}, "Welcome to Rea
 console.log(Welcome)
 // reconcillation -> VDOM to DOM
 ReactDOM.render(Welcome, document.getElementById("root"));
+
+Problem with createElement()
+
+<div>
+    <h1> Cisco </h1>
+    <h2> React Training !!!</h2>
+</div>
+
+
+let Welcome = React.createElement("div", null, [React.createElement("h1", null, "Cisco"), React.createElement("h2", null, "React Training")]);
+
+1) functional components
+2) class components
+to simplify how we create React Element
+
+
+```
+function Welcome() {
+  return <div>
+          <h1>Cisco</h1>
+          <h2>React Training </h2>
+    </div>
+}
+// <Welcome /> Babel invokes the Welcome()
+// function returns JSX, returned JSX babel -- uses React.createElement()
+ReactDOM.render(<Welcome />, document.getElementById("root"));
+```
+
+Functional component with props:
+```
+function Welcome(props) {
+  return <div>
+          <h1>{props.company}</h1>
+          <h2>{props.trg}</h2>
+    </div>
+}
+// <Welcome /> Babel invokes the Welcome()
+// function returns JSX, returned JSX babel -- uses React.createElement()
+ReactDOM.render(<Welcome company="CISCO" trg="React Training"/>, document.getElementById("root"));
+```
+
+Alternatively destructure:
+```
+function Welcome({company, trg}) {
+  return <div>
+          <h1>{company}</h1>
+          <h2>{trg}</h2>
+    </div>
+}
+ReactDOM.render(<Welcome company="CISCO" trg="React Training"/>, document.getElementById("root"));
+```
+
+Class Component:
+class component can have state and behaviour
+
+Banking Account:
+balance is state
+credit() and debit() are behaviours / actions / message
+
+```
+// every class component should inherit from Component
+class ProductComponent extends React.Component {
+  state = {
+    product: {"name": "iPhone 13", "price": 98000.00, "category" : "mobile"}
+  }
+  // what we returns from functional component should go in render()
+  render() {
+    return <div>
+        Name : {this.state.product.name} <br />
+        Price : {this.state.product.price} <br />
+     </div>
+  }
+}
+
+ReactDOM.render(<ProductComponent />, document.getElementById("root"));
+```
+
+
+
+
