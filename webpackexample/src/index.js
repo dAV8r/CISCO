@@ -1,10 +1,9 @@
 import './styles.css'; // trying to import css like Js --> CSS-loader resolves
 import Product from './Product';
-
+import filter, {forEach, map} from './lib';
 let p = new Product("iPhone 14", 120000.00);
 console.log(p.getName(), p.getPrice());
 
-let {forEach, filter, map} = require('./lib');
 
 var data = [5,4, 3,11,2,12];
 

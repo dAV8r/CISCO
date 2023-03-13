@@ -389,3 +389,22 @@ Babel is a free and open-source JavaScript transcompiler that is mainly used to 
 
 Any version of JS ==> bundle.js will be of ES6 {sent to different browsers}
 
+let p = {"name": "iPhone 13", "price": 98000.00, "category" : "mobile"};
+let {name, price} = p;
+name and price will be local variables
+
+===
+lib.js
+export function forEach(elems, action) {..}
+export default function filter(elems, predicate) {..}
+export function map(elems, transformFn) {..}
+
+index.js
+
+import filter from './lib';  into memory only filter is loaded not entire 'lib.js'
+
+import {map} from './lib'; loads entire lib.js into memory and from that destructure map
+
+========
+
+
