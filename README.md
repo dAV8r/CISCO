@@ -601,36 +601,6 @@ webpack-dev-server -D
 
 react-scripts is a wrapper for webpack
 
+index.js ==> App.js ==> CustomerList.jsx ==> 6 CustomerRow.jsx
 
-
-"customers": [{
-            "id": 1,
-            "firstName": "Rachel",
-            "lastName": "Green "
-        },
-        {
-            "id": 2,
-            "firstName": "Chandler",
-            "lastName": "Bing"
-        },
-        {
-            "id": 3,
-            "firstName": "Joey",
-            "lastName": "Tribbiani"
-        },
-        {
-            "id": 4,
-            "firstName": "Monica",
-            "lastName": "Geller"
-        },
-        {
-            "id": 5,
-            "firstName": "Ross",
-            "lastName": "Geller"
-        },
-        {
-            "id": 6,
-            "firstName": "Phoebe",
-            "lastName": "Buffay"
-        }
-        ]
+adding props and behaviour
