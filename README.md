@@ -305,3 +305,26 @@ asset bundle.js 770 bytes [emitted] [minimized] (name: main)
 ./src/index.js 715 bytes [built] [code generated]
 ./src/lib.js 645 bytes [built] [code generated]
 webpack 5.76.1 compiled successfully in 130 ms
+
+
+bundle.js ==> all my modules
+vendor.js ==> all modules from "node_modules" folder 
+
+=================
+
+html-webpack-plugin
+The HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
+
+index.html
+<script src="bundle.js"></script> ==> Browser caches the file and will not reflect
+changes done in development mode
+
+Development mode --> each change to files creates new bundles
+
+<script src="bundle#dsfdsf2632.js"></script>
+<script src="bundle%sdf115$1.js"></script>
+<script src="bundle*$xcdf!232.js"></script>
+
+
+// webpack development server
+ "start": "webpack serve --mode production",

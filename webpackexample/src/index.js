@@ -1,3 +1,4 @@
+console.log("Hello!!!")
 let {forEach, filter, map} = require('./lib');
 
 var data = [5,4, 3,11,2,12];
@@ -6,7 +7,6 @@ var data = [5,4, 3,11,2,12];
 
 //predicate (e) => e % 2 === 0
 let evens = filter(data, e => e % 2 === 0);
-
 var products = [
     {"name": "iPhone 13", "price": 98000.00, "category" : "mobile"},
     {"name": "Sony Braiva", "price": 145000.00, "category": "tv"},
