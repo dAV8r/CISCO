@@ -1005,3 +1005,12 @@ should display <ProductForm /> for adding new product
 http://localhost:3000/dsfsdf
 wrong URL should be display <Default />
 
+
+bundle.js ==> containing all the components ==> FCP ==> Core Web vitals ==> First Contentful Paint
+until bundle.js is not loaded from server nothing comes on screen.
+
+Solutions:
+divide components into different chunks and lazy load them only if required.
+
+bundle.js will be without details / cart / customer components
+
