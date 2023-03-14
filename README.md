@@ -1014,3 +1014,39 @@ divide components into different chunks and lazy load them only if required.
 
 bundle.js will be without details / cart / customer components
 
+==========
+
+bootstrap ==> is a CSS Framework for building RWD ==> Response Web Design
+page adopts to different media and resolution
+* Container
+* Grid System
+* Navbar
+* Card
+* Button
+index.js
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+<div className="container">
+</div>
+
+same as react-bootstrap
+ <Container>
+ </Container>
+
+===
+
+ <nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">CISCO</a>
+</nav>
+
+same as react-bootstrap
+
+as and to are for client side routing;
+href is server side routing
+Use 
+  <Nav.Link as={Link} to="/">Home</Nav.Link>
+and not
+  <Nav.Link href="/">Home</Nav.Link>
+
+
+
