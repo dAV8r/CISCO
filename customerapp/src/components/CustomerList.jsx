@@ -37,9 +37,16 @@ export default class CustomerList extends Component {
         ]
     }
 
+    componentDidMount() {
+        // take a copy of customers
+        this.setState({
+            original: this.state.customers
+        })
+    }
+
     render() {
         return <div>
-            <Filter/>
+            <Filter filterEvent={(txt)=> this.filterCustomers(txt)} />
             {
                 this.state.customers.map(c => <CustomerRow 
                     delEvent={(id) => this.deleteCustomer(id)}
@@ -57,5 +64,13 @@ export default class CustomerList extends Component {
         this.setState({
             customers: custs
         }, () => console.log(this.state.customers));
+    }
+    
+    // txt ==> Geller
+    filterCustomers(txt) {
+        let custs = this.state.original.filter(c => c.lastName.toLowerCase().indexOf(txt.toLowerCase()) >= 0);
+        this.setState({
+            customers: custs
+        });
     }
 }

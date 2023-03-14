@@ -1,5 +1,7 @@
-export default function Filter() {
+export default function Filter({filterEvent}) {
     return <div>
-        <input type="text" placeholder="search by name" />
+        <input type="text" 
+        onChange={(evt) => filterEvent(evt.target.value)}
+        placeholder="search by name" />
     </div>
 }
