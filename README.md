@@ -676,3 +676,275 @@ diffs.forEach(node => {
 });
 
 
+========
+
+Passing Callbacks as props
+
+export default class Parent extends Component{
+    render() {
+        <Child cb={(data) => this.doTask(data)} />
+    }
+
+    doTask(data) {
+        console.log("Called!!")
+    }
+}
+function Child({cb}) {
+    return <div>
+             <button onClick={() => cb("hello")}>
+    </div>
+}
+
+class Child extends Component {
+    render() {
+       return <div>
+                <button onClick={() => this.props.cb("hello")}>
+       </div>
+    }
+}
+
+======================
+
+Component Life Cycle methods:
+1) Mounting phase is when first time component is rendered
+constructor() => render() ==> componentDidMount()
+
+do initialization in constructor
+render() ==> component will display with initialized data
+componentDidMount() ==> make API calls to server to pull the data
+setState with the data fetched from API calls
+
+Once setState is called it goes to updating phase
+
+2) Update Phase
+this is triggred whenever state or props change
+
+shouldComponentUpdate() ==> false
+shouldComponentUpdate() ==> true ==> render() ==> componentDidUpdate()
+componentDidUpdate() ==> to make API calls
+
+componentDidMount() ==> fetch main data
+    Example: Get Orders
+    Get Artist
+componentDidUpdate() ==> fetch dependent data
+    Get Delivery address for each order
+    Get Albums for each artist
+
+3) Destroyed
+componentWillUnmount()
+place where data can flushed to Server before destroying
+
+==========
+
+Making API calls in constructor() vs componentDidMount()
+
+Making api calls in constructor() will lead to FCP issues
+FirstContentfulPaint
+
+shouldComponentUpdate() ==> called whenever state or props change before render()
+use this method to avoid unnesscary re-render of child
+
+```
+class Child extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.props.name === nextProps.name) {
+      return false;
+    }
+    return true;
+  }
+  render() {
+    console.log("Child renders!!!");
+    return <div>
+        Name in Child: {this.props.name}
+     </div>
+  }
+}
+
+class Parent extends React.Component {
+  state = {
+    name: "George",
+    age: 25
+  }
+  
+  incrementAge() {
+    this.setState({
+      age: this.state.age + 1
+    })
+  }
+  
+  render() {
+    console.log("Parent renders");
+    return <div>
+        Name : {this.state.name} <br />
+        Age : {this.state.age} <br />
+        <Child name={this.state.name} /> <br />
+      <button onClick={() => this.incrementAge()}>Age Change </button>
+     </div>
+  }
+}
+
+ReactDOM.render(<Parent />, document.getElementById("root"));
+```
+
+Avoid re-render of functional child component
+
+```
+function Child (props) {
+    console.log("Child renders!!!");
+    return <div>
+        Name in Child: {props.name}
+     </div>
+}
+
+let MemoChild = React.memo(Child);
+
+class Parent extends React.Component {
+  state = {
+    name: "George",
+    age: 25
+  }
+  
+  incrementAge() {
+    this.setState({
+      age: this.state.age + 1
+    })
+  }
+  
+  render() {
+    console.log("Parent renders");
+    return <div>
+        Name : {this.state.name} <br />
+        Age : {this.state.age} <br />
+        <MemoChild name={this.state.name} /> <br />
+      <button onClick={() => this.incrementAge()}>Age Change </button>
+     </div>
+  }
+}
+
+ReactDOM.render(<Parent />, document.getElementById("root"));
+
+```
+
+React.memo(Child) is a HOC
+memo() checks currentProps with newProps and conditionally exectue Child component
+if(currentProps == newProps) {
+    return;
+} else {
+    return Child(newProps);
+}
+
+====
+
+React Context ==> React 16.6 version onwards
+Context ==> acts like a central placeholder for data, using this we can avoid props drill
+
+```
+
+let PersonContext = React.createContext(); // central placeholder for data
+
+class Parent extends React.Component {
+    state = {
+        name:"banuprakash"
+    }
+    render() {
+        return <PersonContext.Provider value={this.state}>
+                <A/>
+            </PersonContext.Provider>
+    }
+}
+
+function A() {
+    return <div>
+        I am A comp <br />
+        <B/>
+    </div>
+}
+
+function B() {
+    return <div>
+        I am B <br />
+        <C/>
+    </div>
+}
+
+class C extends React.Component {
+    render() {
+    return <div>
+              I am C <br />
+            <PersonContext.Consumer>
+                {
+                    value => <h1> {value.name}</h1>
+                }
+            </PersonContext.Consumer>
+    </div>
+    }
+}
+ReactDOM.render(<Parent/>, document.getElementById("root"));
+
+```
+
+IF C COMPONENT IS functional Component we can use hooks useContext();
+
+```
+function C() {
+  let {name} = React.useContext(PersonContext);
+    return <div>
+        I am C <br />
+       <h1>Name is {name} </h1>
+      </div>
+}
+
+```
+
+React Hooks:
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+Simple Goal: Avoid writing Class components
+
+extends Component ==> lots of things are inherited
+
+Class component provides state and behaviour
+
+Hooks:
+1) useState() is a hook to have state variables in functional component
+
+```
+function App() {
+  let [name, setName] = React.useState("Danny");
+  let [age, setAge]= React.useState(25);
+  
+ return <div>
+   Name: {name} <br />
+   Age : {age} <br />
+   <button onClick={() => setAge(age + 1)}>Age Change</button>
+   </div>
+}
+ReactDOM.render(<App />, document.getElementById("root"));
+
+```
+
+class MyComp extends Component {
+    state = {
+        x : 10,
+        y : 15
+    }
+
+    setX(no) {
+        this.setState({
+            x: no
+        })
+    }
+
+    setY(no) {
+        this.setState({
+            y:no
+        })
+    }
+}
+
+Using useState()
+
+function MyComp() {
+    let [x, setX] = React.useState(10);
+    let [y, setY] = React.useState(15);
+}
+

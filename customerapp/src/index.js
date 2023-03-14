@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-//import ReactDOM from 'react-dom'
+//import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom'
 import './index.css'; // css-loader, style-loder
 import App from './App'; // babel-loader
 
@@ -9,9 +9,9 @@ import App from './App'; // babel-loader
 
 // https://claudiopro.github.io/react-fiber-vs-stack-demo/
 // React version >= 18 --> Fiber Architecture
-const root = ReactDOM.createRoot(document.getElementById('root'));
- root.render(
-     <App />
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+//  root.render(
+//      <App />
+// );
 
 
