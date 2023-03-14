@@ -1048,5 +1048,49 @@ Use
 and not
   <Nav.Link href="/">Home</Nav.Link>
 
+npm build
+
+Grid System:
+<img src="..." className="col-sm-12 col-md-6 col-lg-4">
+
+Cards:
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+================
+
+Making API calls from React to Restful WS
+* Spring Boot for RESTful
+* ASP.NET
+* PHP
+* ExpressJS
+* Python Flask
+
+Fake Restful WS using json-server
+
+data.json
+{
+    actors: [
+        {id: 1, name : "Scarlett", gender: "female"},
+        {id: 2, name : "Uma Thorman", gender: "female"},
+        {id:3, name:"John travalto", gender:"male"}
+    ],
+    movies: [
+        {id: 1, name : "Avengers"},
+        {id : 2, name : "Avatar"}
+    ]
+}
 
 
+now data.json will be like my database and also endpoints
+we can perform CRUD operations 
+
+npx json-server --watch data.json --port 1234
+http://localhost:1234/movies
+http://localhost:1234/actors
+http://localhost:1234/actors/2
+http://localhost:1234/actors?gender=female
