@@ -947,4 +947,61 @@ function MyComp() {
     let [x, setX] = React.useState(10);
     let [y, setY] = React.useState(15);
 }
+ @fortawesome/free-solid-svg-icons,@fortawesome/react-fontawesome,
+
+
+========
+Event Handling and pass callback as props
+1) ReactContext
+2) useState
+3) useContext()
+4) React.memo() and shouldComponentUpdate() to avoid re-render of child components
+5) useReducer()
+6) useCallback()
+7) useEffect()
+
+useEffect() is a hook to simulate life cycle methods of react
+
+function App() {
+    let [age, setAge] = useState(20);
+    let [name, setName] = useState("Tim");
+
+    useEffect(() => {
+        console.log("similar to componentDidMount(), called only once when componet is loaded");
+    },[]);
+
+    useEffect(() => {
+       console.log("similar to componentDidUpdate(), called whenever any state or props change"); 
+    })
+
+    useEffect(() => {
+        console.log("called whenever age changes, but not name");
+    }, [age])
+}
+
+=============
+
+$ npx create-react-app mobileapp
+within mobileapp folder>
+$ npm i react-router-dom bootstrap react-bootstrap 
+$ npm i @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+
+react-router-dom
+is for client side routing
+Different URLs different components has to be rendered
+http://localhost:3000/
+should display HomeComponent
+http://localhost:3000/products
+should display <ProductList />
+http://localhost:3000/cart
+should display <Cart />
+
+http://localhost:3000/details/4
+should display <Details/> component with product 4 info
+
+http://localhost:3000/new_product
+should display <ProductForm /> for adding new product
+
+http://localhost:3000/dsfsdf
+wrong URL should be display <Default />
 
