@@ -27,7 +27,7 @@ function App() {
       <Container>
         <Navbar.Brand>Mobile Shop</Navbar.Brand>
         <Nav>
-          <Nav.Link as={Link} to="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/products">Home</Nav.Link>
           <Nav.Link as={Link} to="/products">Phones</Nav.Link>
           <Nav.Link as={Link} to="/new_product">New Product</Nav.Link>
           <Nav.Link as={Link} to="/cart">
@@ -43,7 +43,7 @@ function App() {
         <Route path="/details/:id" element={<Details/>} />
         <Route path="/new_product" element={<ProductForm />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<ProductList />} />
         <Route path="*" element={<Default />} />
       </Routes>
       </Suspense>

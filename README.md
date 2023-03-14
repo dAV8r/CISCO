@@ -1090,7 +1090,27 @@ now data.json will be like my database and also endpoints
 we can perform CRUD operations 
 
 npx json-server --watch data.json --port 1234
+
 http://localhost:1234/movies
 http://localhost:1234/actors
 http://localhost:1234/actors/2
 http://localhost:1234/actors?gender=female
+
+===
+
+
+http://localhost:1234/products
+http://localhost:1234/products/2
+
+===
+axios ==> API calls from REACT 
+npm i axios
+
+ProductContext 
+* make API call pull the products and store it in ProductContext
+
+index.js
+<ProductProvider>
+   <App/> ==> props.children
+</ProductProvider>
+
