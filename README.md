@@ -604,3 +604,75 @@ react-scripts is a wrapper for webpack
 index.js ==> App.js ==> CustomerList.jsx ==> 6 CustomerRow.jsx
 
 adding props and behaviour
+
+-------
+
+Recap:
+React.createElement() lowlevel API to create VDOM -- like JSON object
+
+Reconcillation ==> VDOM to DOM / UI using different renders
+* react-dom for web pages
+* react-tv for TV
+* react-native for Mobile
+* react-proton for desktop
+
+ReactDOM from react-dom --> React version = 17 ==> Stack
+
+ReactDOM from 'react-dom/client' --> React 18+ ==> Fiber is concurrent rendering
+
+functional component ==> returns JSX
+* <div> </div> XML tags
+* {} is JavaScript
+* Babel converts returned JSX into ReactElement
+
+class components 
+* render() returns JSX
+* can have state / instance variables
+* can have behaviour / instance methods 
+
+In react state & props are special keywords
+props ==> data passed from parent to child
+state ==> internal data of component
+
+state & props are immutable
+
+npx create-react-app nameofapp
+* scaffolding code internally using webpack, webpackdevserver, HtmlWebpackplugin, css-loader, style-loader, @babel/core, @babel-loader, @babel-presetenv [ for pollyfills ]
+* install react, react-dom, testing libraries
+
+npm run eject
+
+================
+<ul>
+    <li key="1">One</li>
+    <li key="2">Two</li>
+</ul>
+
+ TO
+
+ <ul>
+    <li key="3">Three</li>
+    <li key="1">1</li>
+    <li key="2">Two</li>
+</ul>
+
+https://www.geeksforgeeks.org/what-is-diffing-algorithm/
+
+VDOM and VDOM-Copy
+
+diffs[] // won't contain <li>Two</li>
+
+diffs.forEach(node => {
+    var newNode = document.createElement("li", ...);
+    if(oldNode) {
+        document.replaceNode(newNode);
+    } else {
+        document.prepand(newNode);
+        or
+        doucment.append(newNode);
+        or
+        document.append(newnode, position);
+    }
+});
+
+
