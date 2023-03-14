@@ -14,6 +14,10 @@ function ProductProvider(props) {
         });
     }, []);
 
+    useEffect(() => {
+        console.log("called whenever state or props change")
+    });
+    
     return <ProductContext.Provider value={{products}}>
         {props.children}
     </ProductContext.Provider>

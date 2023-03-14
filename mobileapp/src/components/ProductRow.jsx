@@ -1,11 +1,14 @@
 import { faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export default function ProductRow({ product }) {
-    let {productImageUrl, productDescription, productPrice} = product;
+    let {id, productImageUrl, productDescription, productPrice} = product;
     return <div className="col-md-4 col-lg-3">
         <div className="card">
-            <img className="card-img-top" src={productImageUrl} alt="Card image cap" />
+            <Link to={`/details/${id}`}>
+                <img className="card-img-top" src={productImageUrl} alt="Card image cap" />
+            </Link>
                 <div className="card-body">
                     <p className="card-text">{productDescription}</p>
                 </div>

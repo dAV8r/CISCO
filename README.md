@@ -1114,3 +1114,12 @@ index.js
    <App/> ==> props.children
 </ProductProvider>
 
+ <Link to={`/details/${id}`}></Link>
+Client side routing
+
+var link = "/details/" + id 
+ <Link to={link} }></Link>
+ vs 
+ <a href="/details/2"></a>
+
+ Server side Routing
