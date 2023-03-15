@@ -994,16 +994,16 @@ should display HomeComponent
 http://localhost:3000/products
 should display <ProductList />
 http://localhost:3000/cart
-should display <Cart />
+should display Cart
 
 http://localhost:3000/details/4
-should display <Details/> component with product 4 info
+should display Details component with product 4 info
 
 http://localhost:3000/new_product
-should display <ProductForm /> for adding new product
+should display ProductForm for adding new product
 
 http://localhost:3000/dsfsdf
-wrong URL should be display <Default />
+wrong URL should be display Default
 
 
 bundle.js ==> containing all the components ==> FCP ==> Core Web vitals ==> First Contentful Paint
@@ -1026,31 +1026,34 @@ page adopts to different media and resolution
 index.js
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+```
 <div className="container">
 </div>
 
 same as react-bootstrap
  <Container>
  </Container>
-
+```
 ===
-
+```
  <nav class="navbar navbar-dark bg-primary">
     <a class="navbar-brand" href="#">CISCO</a>
 </nav>
-
+```
 same as react-bootstrap
 
 as and to are for client side routing;
 href is server side routing
 Use 
+```
   <Nav.Link as={Link} to="/">Home</Nav.Link>
 and not
   <Nav.Link href="/">Home</Nav.Link>
-
+```
 npm build
 
 Grid System:
+```
 <img src="..." className="col-sm-12 col-md-6 col-lg-4">
 
 Cards:
@@ -1060,7 +1063,7 @@ Cards:
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
 </div>
-
+```
 ================
 
 Making API calls from React to Restful WS
@@ -1071,7 +1074,7 @@ Making API calls from React to Restful WS
 * Python Flask
 
 Fake Restful WS using json-server
-
+```
 data.json
 {
     actors: [
@@ -1084,7 +1087,7 @@ data.json
         {id : 2, name : "Avatar"}
     ]
 }
-
+```
 
 now data.json will be like my database and also endpoints
 we can perform CRUD operations 
@@ -1110,6 +1113,7 @@ ProductContext
 * make API call pull the products and store it in ProductContext
 
 index.js
+```
 <ProductProvider>
    <App/> ==> props.children
 </ProductProvider>
@@ -1121,5 +1125,6 @@ var link = "/details/" + id
  <Link to={link} }></Link>
  vs 
  <a href="/details/2"></a>
+  Server side Routing
+```
 
- Server side Routing
